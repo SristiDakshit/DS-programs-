@@ -1,0 +1,66 @@
+#include<stdio.h>
+
+void merge_sort(int[],int,int);
+void merge(int[],int,int,int);
+
+int main()
+{
+    int a[100],n,i;
+
+    printf("Enter no. of elements: ");
+    scanf("%d",&n);
+
+    printf("Enter %d elements:\n",n);
+    for(i=0;i<n;i++)
+	scanf("%d",a+i);
+
+    printf("\nGiven Array:-\n");
+    for(i=0;i<n;i++)
+	printf("   %d",*(a+i));
+
+    merge_sort(a,0,n-1);
+
+    printf("\n\nSorted Array:-\n");
+    for(i=0;i<n;i++)
+	printf("   %d",*(a+i));
+
+    printf("\n\n");
+
+    return 0;
+}     //End of program
+
+void merge_sort(int a[],int beg,int end)
+{
+    if(beg<end)
+    {
+	int mid=(beg+end)/2;
+	merge_sort(a,beg,mid);
+	merge_sort(a,mid+1,end);
+	merge(a,beg,mid,end);
+    }
+    return;
+}
+
+void merge(int a[],int beg,int mid,int end)
+{
+    int i=beg,j=mid+1,k=0,t[100];
+
+    while(i<=mid&&j<=end)
+    {
+	if(a[i]<a[j])
+	    t[k++]=a[i++];
+	else
+	    t[k++]=a[j++];
+    }
+
+    while(i<=mid)
+        t[k++]=a[j++];
+    while(j<=end)
+        t[k++]=a[i++];
+
+    for(i=beg,k=0;i<=end;i++,k++)
+	a[i]=t[k];
+
+    return;
+}
+
