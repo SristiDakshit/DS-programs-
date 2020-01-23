@@ -27,3 +27,26 @@ int main()
 
     return 0;
 }         //End of Program
+
+int binary_search(int a[],int n,int key)    //Function Definition
+{
+    int first=0,last=n-1,mid;
+
+    mid = (first+last)/2;
+
+    while(first<=last&&a[mid]!=key)
+    {
+	if(key>a[mid])
+	    first=mid+1;
+	else if(key<a[mid])
+	    last=mid-1;
+	mid=(first+last)/2;   //Condition Updation
+    }
+
+    if(first>last)
+	return -1;
+    else
+	return mid+1;
+
+}    //End of Function
+
