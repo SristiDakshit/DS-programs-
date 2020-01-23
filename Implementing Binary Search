@@ -1,0 +1,29 @@
+#include<stdio.h>
+
+int binary_search(int[],int,int);   //Function Declaration
+
+int main()
+{
+    int a[100],n,i,key,p;
+
+    printf("Enter no. of elements: ");
+    scanf("%d",&n);
+
+    printf("Enter %d elements in ascending order:\n",n);
+    for(i=0;i<n;i++)
+	scanf("%d",a+i);    //Input array
+
+    printf("\nEnter key: ");
+    scanf("%d",&key);     //Input Key
+
+    p=binary_search(a,n,key);    //Function Call
+
+    if(p==-1)
+	printf("%d not found\n",key);
+    else
+	printf("%d found at position %d\n",key,p);
+
+    printf("\n");
+
+    return 0;
+}         //End of Program
