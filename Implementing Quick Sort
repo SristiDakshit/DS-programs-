@@ -1,0 +1,86 @@
+#include<stdio.h>
+
+void quick_sort(int[],int,int);   //Fucntion Declaration
+int partition(int[],int,int);
+
+int main()
+{
+    int a[100],n,i;
+
+    printf("Enter no. of elements: ");
+    scanf("%d",&n);    //Input size of array
+
+    printf("Enter %d elements:\n",n);
+    for(i=0;i<n;i++)
+	scanf("%d",a+i);     //input array elements
+
+    printf("\nGiven Array:-\n");
+    for(i=0;i<n;i++)
+	printf("   %d",*(a+i));
+
+    quick_sort(a,0,n-1);   //Function call
+
+    printf("\n\nSorted Array:-\n");
+    for(i=0;i<n;i++)
+	printf("   %d",*(a+i));   //Print Sorted Array
+
+    printf("\n\n");
+
+    return 0;
+}       //End of Program
+
+void quick_sort(int a[],int beg,int end)    //quicksort
+{
+    if(beg<end)
+    {
+	int loc;
+
+	loc=partition(a,beg,end);   //partitioning array
+	quick_sort(a,beg,loc-1);    //recursive call
+	quick_sort(a,loc+1,end);
+    }
+    return;
+}         //end of quick_sort
+
+int partition(int a[],int beg,int end)
+{
+    int temp,flag=0,left=beg,loc=beg,right=end;
+
+    while(flag!=1)
+    {
+	while(a[loc]<=a[right]&&right!=loc)   //Loop from right
+	    right=right-1;
+
+	if(right==loc)
+	    flag=1;
+	else if(a[loc]>a[right])
+	{                     //swap block
+	    temp=a[right];
+	    a[right]=a[loc];
+	    a[loc]=temp;
+
+	    loc=right;
+	}
+
+	if(flag!=1)
+	{
+	    while(a[left]<=a[loc]&&left!=loc)   //Loop from left
+		left=left+1;
+
+	    if(left==loc)
+	        flag=1;
+	    else if(a[left]>a[loc])
+	    {                       //swap block
+	        temp=a[left];
+	        a[left]=a[loc];
+	        a[loc]=temp;
+
+	        loc=left;
+	    }
+	}
+
+    }
+
+    return;
+}      //End of partition
+
