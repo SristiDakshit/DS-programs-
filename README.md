@@ -38,4 +38,4 @@ Written and test in C/CPP.
 - [x] [Stack Linked List](https://github.com/SDakshit/DS-programs-/blob/master/stack_linkedlist.cpp)
 - [x] [String Stream](https://github.com/SDakshit/DS-programs-/blob/master/stringStream.cpp)
 - [x] [Tower Of Hanoi](https://github.com/SDakshit/DS-programs-/blob/master/tower%20of%20hanoi.cpp)
-- [x] [Word Frequency](https://github.com/SDakshit/DS-programs-/blob/master/wordFrequency.cppx
+- [x] [Word Frequency](https://github.com/SDakshit/DS-programs-/blob/master/wordFrequency.cpp)
